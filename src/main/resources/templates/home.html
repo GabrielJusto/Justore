@@ -1,0 +1,27 @@
+<html>
+<head th:replace="~{base :: head}">
+
+</head>
+<body>
+	<div class="container">
+		<form action="/usuario/login" th:object="${requisicaoLogin}" method="POST">
+			<div class="mb-3">
+				<label for="exampleInputEmail1" class="form-label">Email address</label> 
+				<input th:field="*{usuario}" th:errorclass="is-invalid" class="form-control" >
+				<div id="emailHelp" class="form-text">
+					We'll never share your email with anyone else.
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="exampleInputPassword1" class="form-label">Password</label>
+				<input th:field="*{senha}" th:errorclass="is-invalid" type="password" class="form-control">
+			</div>
+			<button type="submit" class="btn btn-primary">Login</button>
+			<button type="button" class="btn btn-outline-secondary">Cadastrar</button>
+			
+		</form>
+	</div>
+	
+</body>
+
+</html>
