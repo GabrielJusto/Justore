@@ -1,0 +1,28 @@
+<html>
+
+	<head th:replace="~{base :: head}">
+	</head>
+	
+	<body>
+		<div class="container">
+			<form action="/usuario/cadastrar" th:object="${requisicaoCadastroUsuario}" method="POST">
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Usuário</label> 
+					<input th:field="*{usuario}" th:errorclass="is-invalid" class="form-control" >
+					<div class="invalid-feedback" th:errors="*{usuario}">
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label">Senha</label>
+					<input th:field="*{senha}" th:errorclass="is-invalid" type="password" class="form-control">
+					<div class="invalid-feedback" th:errors="*{senha}">
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label">Repita sua senha</label>
+					<input th:field="*{senhaConfirmacao}" th:errorclass="is-invalid" type="password" class="form-control">
+					<p th:if="${#fields.hasErrors('senhaConfirmacao')}" th:errors="*{senhaConfirmacao}" class="invalid-feedback">Incorrect date</p>
+				</div>
+				<button type="submit" class="btn btn-primary">Cadastrar</button>
+			</form>
+		</div>
+	</body>
+</html>
