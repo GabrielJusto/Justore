@@ -1,0 +1,47 @@
+<html>
+
+	<head th:replace="~{base :: head}">
+	</head>
+	
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-expand-lg bg-body-tertiary">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">Justore</a>
+					<button class="navbar-toggler" type="button"
+						data-bs-toggle="collapse" data-bs-target="#navbarNav"
+						aria-controls="navbarNav" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav">
+							<li class="nav-item"><a class="nav-link active"
+								aria-current="page" href="/produto/cadastro">Cadastrar Produto</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<form action="/produto/cadastro" th:object="${requisicaoCadastroProduto}" method="POST">
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Nome do produto</label> 
+					<input th:field="*{nome}"  class="form-control" >
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Descrição do produto</label> 
+					<input th:field="*{descricao}"  class="form-control" >
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Url da imagem</label> 
+					<input th:field="*{urlImagem}"  class="form-control" >
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Preço</label> 
+					<input th:field="*{preco}"  class="form-control" >
+				</div>
+				<button type="submit" class="btn btn-primary">Cadastrar</button>
+			</form>
+		</div>
+	</body>
+</html>

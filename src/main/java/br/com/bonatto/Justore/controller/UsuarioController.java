@@ -36,7 +36,7 @@ public class UsuarioController
 		
 		List<Usuario> usu = usuarioRepository.findByUsuario(requisicao.getUsuario());
 		if(usu.size() > 0 && usu.get(0).getSenha().equals(requisicao.getSenha()))
-			return "init";
+			return "redirect:/home/init";
 		
 		
 		return "redirect:/home";
